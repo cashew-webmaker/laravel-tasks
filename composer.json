@@ -3,9 +3,14 @@
     "description": "Task Package for Internal use",
     "type": "package",
     "require": {
-        "php": ">=5.4.0",
-        "nesbot/carbon": "~1.0"
+        "php": ">=5.5.0",
+        "nesbot/carbon": "~1.0",
+        "illuminate/console": "~5.0",
+        "illuminate/support": "~5.0",
+        "illuminate/cache": "~5.0",
+        "illuminate/database": "~5.0"
     },
+
     "license": "MIT",
     "authors": [
         {
