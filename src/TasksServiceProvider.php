@@ -24,9 +24,19 @@ class TasksServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'tasks');
 
-        $this->publishAssets();
+//        $this->publishAssets();
+//
+//        $this->registerCommands();
+    }
 
-        $this->registerCommands();
+    /**
+     * Register Passport's migration files.
+     *
+     * @return void
+     */
+    protected function registerMigrations()
+    {
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
     /**
@@ -52,7 +62,7 @@ class TasksServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        //
     }
 
 }
