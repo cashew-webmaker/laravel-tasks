@@ -1,0 +1,21 @@
+{
+    "name": "cashewdigital/laravel-tasks",
+    "description": "Task Package for Internal use",
+    "type": "package",
+    "require": {
+        "php": ">=5.4.0",
+        "nesbot/carbon": "~1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Norman Wanto",
+            "email": "norman@cashewdigital.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cashewdigital\\": "src/"
+        }
+    }
+}
