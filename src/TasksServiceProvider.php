@@ -1,6 +1,6 @@
 <?php
 
-namespace CashewDigital;
+namespace Cashewdigital;
 
 
 use Illuminate\Support\ServiceProvider;
@@ -22,11 +22,25 @@ class TasksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Load & Publis Views
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'tasks');
+        $this->publishes([
+            __DIR__.'/resources/views' => base_path('resources/views/tasks'),
+        ], 'tasks-views');
 
-//        $this->publishAssets();
-//
-//        $this->registerCommands();
+        // Load Routes
+        // We can definitely use loadRoutesFrom() method, but using controllers allow us to use route:cache. 100x speed
+        $this->app['router']->group(['namespace' => 'Cashewdigital\Http\Controllers'], function () {
+            require __DIR__ . '/routes/web.php';
+        });
+
+        // Publish JS
+        $this->publishes([
+            __DIR__ . '/assets/js/topublicjs' => public_path('js'),
+        ]);
+
+        //
+
     }
 
     /**
@@ -40,7 +54,7 @@ class TasksServiceProvider extends ServiceProvider
     }
 
     /**
-     * Publish datatables assets.
+     * Publish assets.
      */
     protected function publishAssets()
     {
@@ -48,7 +62,7 @@ class TasksServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register datatables commands.
+     * Register commands.
      */
     protected function registerCommands()
     {
@@ -62,7 +76,9 @@ class TasksServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('tasks', function ($app) {
+            //
+        });
     }
 
 }
