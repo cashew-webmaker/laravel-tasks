@@ -22,7 +22,7 @@ class TasksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Load & Publis Views
+        // Load & Publish Views
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'tasks');
         $this->publishes([
             __DIR__.'/resources/views' => base_path('resources/views/tasks'),
@@ -39,7 +39,8 @@ class TasksServiceProvider extends ServiceProvider
             __DIR__ . '/assets/js/topublicjs' => public_path('js'),
         ]);
 
-        //
+        // Load Migrations
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
     }
 

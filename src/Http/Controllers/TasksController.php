@@ -2,12 +2,13 @@
 
 namespace Cashewdigital\Http\Controllers;
 
-use App\Notifications\TaskHorse\TaskFinishedNotif;
-use App\Notifications\TaskHorse\TaskFinishedObserverNotif;
-use App\Repositories\TaskRepository;
-use App\Task;
-use App\User;
+//use App\Notifications\TaskHorse\TaskFinishedNotif;
+//use App\Notifications\TaskHorse\TaskFinishedObserverNotif;
+//use App\Repositories\TaskRepository;
+//use App\Task;
+//use App\User;
 use Carbon\Carbon;
+use Cashewdigital\Task;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -314,8 +315,25 @@ class TasksController extends Controller
 
     public function test()
     {
+
+        Task::create([
+            'name' => 'Some Random Task',
+            'assignor_id' => 1,
+            'assignee_id' => 1,
+//            'status',
+//            'assigned_at',
+//            'deadline_at',
+//            'finished_at',
+//            'reviewed_at',
+//            'deferred_till',
+//            'notes',
+//            'auto_review',
+//            'recurring_task_id',
+        ]);
+
         echo("This is from the backend<br>");
         echo("From TaskController<br>");
+
         return 'done';
     }
 
